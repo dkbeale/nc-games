@@ -8,7 +8,6 @@ import SingleReview from './components/SingleReview';
 
 function App() {
   return (
-
     <BrowserRouter>
     <div className="App">
       <Nav/>

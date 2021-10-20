@@ -16,10 +16,12 @@ export const getHomeReviews = () => {
     })
 }
 
-export const getReviews = (category) => {
+export const getReviews = (category, sort_by, order) => {
     return gameAPI.get('/reviews', {
         params: {
-            category: category
+            category: category,
+            sort_by: sort_by,
+            order: order
         }
     }).then((res) => {
         return res;

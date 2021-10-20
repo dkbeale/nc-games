@@ -10,13 +10,15 @@ const SingleReview = () => {
     const [votes, setVotes] = useState(0)
     const { review_id } = useParams()
     const [comments, setComments] = useState([]);
-
-    //console.log(review)
-
+    
+    
+    
+    
     useEffect(() => {
        getReviewById(review_id).then((res) => {
+           const tempData= res.data.review.created_at.split("T");
+           res.data.review.created_at = tempData[0]
            setReview(res.data.review)
-           setVotes(res.data.review.votes)
        })
     }, [review_id])
 
@@ -27,7 +29,7 @@ const SingleReview = () => {
 
         })
     }
-
+    
     return <section>
             <img src={review.review_img_url} alt={review.title} />
             <h1>Review of {review.title}</h1>
@@ -36,7 +38,7 @@ const SingleReview = () => {
             <p>{review.created_at}</p>
             <p>{review.review_body}</p>
             <p>{review.category}</p>
-            <button onClick={() => {increaseVote()}}>Votes: {votes}</button>
+            <button onClick={() => {increaseVote()}}>Votes: {review.votes + votes}</button>
             <p>{review.comment_count} comments</p>
             <PostComment comments={comments} setComments={setComments}/>
             <Comments comments={comments} setComments={setComments}/>

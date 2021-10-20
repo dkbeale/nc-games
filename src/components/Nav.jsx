@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCategories } from "../utils/api";
-import Reviews from "./Reviews";
 
 
 const Nav = () => {
@@ -16,16 +15,10 @@ const Nav = () => {
         })
     }, [])
 
-    return <section>
-            <h1>Nav</h1>
+    return <section id="Nav">
+            <h1><Link to="/">Board of Reviews</Link></h1>
             <Link to="/">Home</Link>
             <Link to="/reviews">Reviews</Link>
-            {categories.map((category) => {
-                return (
-                    <Link key={category.slug} to={`/categories/${category.slug}/reviews`}>{category.slug}</Link>
-                )
-            })}
-            
         </section>
 }
 
