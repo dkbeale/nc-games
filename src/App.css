@@ -29,6 +29,7 @@
 .nav_links {
   padding: 0.5rem;
   text-decoration: none;
+  color: white;
 }
 
 #Home {
@@ -38,7 +39,6 @@
   padding: 0 2rem;
   max-width: 100vw;
   align-items: center;
-  background-color: rgb(245, 245, 245);
 }
 
 #latest_review {
@@ -46,6 +46,9 @@
   flex-direction: column;
   align-items: center;
   max-width: 400px;
+  text-decoration: none;
+  color: black;
+  box-shadow: -10px 0px 15px 0px rgba(124,124,124,0.30), 10px 0px 15px 0px rgba(124,124,124,0.30);
 }
 
 #latest_review_img {
@@ -65,18 +68,73 @@
   text-decoration: none;
 }
 
-.reviews img {
-  height: 10%;
-  width: 10%;
-}
-
 #latest_review .review_body {
-  
   margin: 0;
+  padding: 0 0.8rem;
+}
+
+#review_section {
+  padding: 0 2rem;
+}
+
+#reviews {
   border: solid black;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  
+}
+
+.review {
+  height: 10rem;
+  width: 100%;
+  border: solid blue;
+  margin-bottom: 0.5rem;
+  font-size: small;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 35% 35% 30%;
+  grid-template-areas: 
+   "image title"
+   "image designer"
+   "owner votes";
+}
+
+.review .review_image {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+}
+
+.review_image img {
+  width: 100%;
+  height: 100%; 
+}
+
+.review .review_title {
+  grid-area: title;
+  
+}
+
+.review .review_designer {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  grid-area: designer;
+}
+
+.review .review_owner {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  grid-area: owner;
 }
 
 
+.review .review_votes {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  grid-area: votes;  
+}
 
 
 

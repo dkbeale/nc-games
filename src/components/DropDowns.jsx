@@ -15,7 +15,7 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder}) => {
                <h3>To choose reviews by category, please pick from the drop down menu below</h3>
             <h3>pick options to order</h3>
                 <select name="category" onChange={(e) => setCategory(e.target.value)}>
-                    <option>--select category--</option>
+                    <option value="">--select category--</option>
                     <option value="">all reviews</option>
                     {categories.map((cata) => {
                         return <option key={cata.slug} value={cata.slug}>{cata.slug}</option>

@@ -17,19 +17,19 @@ const Reviews = () => {
         })
     }, [category, sort_by, order])
 
-    return <section>
+    return <section id="review_section">
             <h1>Reviews</h1>
             <h2>Please find a list of reviews below</h2>
             <DropDowns category={category} setCategory={setCategory}
             setSortBy={setSortBy} setOrder={setOrder}/>
-            <ul className="reviews">
+            <ul id="reviews">
                 {reviews.map((review) => {
-                    return <li key={review.review_id}>
-                        <Link to={`/reviews/${review.review_id}`}><img src={review.review_img_url} alt={review.title} /></Link>
-                        <Link to={`/reviews/${review.review_id}`}>{review.title}</Link>
-                        <p>Designer: {review.designer}</p>
-                        <p>Reviewed by: {review.owner}</p>
-                        <p>Votes: {review.votes}</p>
+                    return <li className="review" key={review.review_id}>
+                            <Link to={`/reviews/${review.review_id}`} className="review_image"><img src={review.review_img_url} alt={review.title} /></Link>
+                            <Link to={`/reviews/${review.review_id}`} className="review_title">{review.title}</Link>
+                            <p className="review_designer">Designer: {review.designer}</p>
+                            <p className="review_owner">by: {review.owner}</p>
+                            <p className="review_votes">Votes: {review.votes}</p>
                         
                     </li>
                 })}
