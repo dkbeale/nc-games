@@ -1,19 +1,15 @@
 import { useState, useEffect } from "react";
 import { getCategories, getReviews } from "../utils/api";
-import '../css/Reviews.css';
 import { Link } from "react-router-dom";
 import DropDowns from "./DropDowns";
 
 const Reviews = () => {
 
     const [reviews, setReviews] = useState([])
-   // const [categories, setCategories] = useState([])
     const [sort_by, setSortBy] = useState(null)
     const [order, setOrder] = useState(null)
     const [category, setCategory] = useState(null)
     
-
-    //console.log(order)
 
     useEffect(() => {
         getReviews(category, sort_by, order).then((res) => {
@@ -26,7 +22,7 @@ const Reviews = () => {
             <h2>Please find a list of reviews below</h2>
             <DropDowns category={category} setCategory={setCategory}
             setSortBy={setSortBy} setOrder={setOrder}/>
-            <ul>
+            <ul className="reviews">
                 {reviews.map((review) => {
                     return <li key={review.review_id}>
                         <Link to={`/reviews/${review.review_id}`}><img src={review.review_img_url} alt={review.title} /></Link>
