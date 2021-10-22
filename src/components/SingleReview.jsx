@@ -30,20 +30,20 @@ const SingleReview = () => {
         })
     }
     
-    return <section id="single_review">
-            {(error) ? <p>Review does not exist!</p> : <>
+    return <section id="single_review_parent">
+            {(error) ? <p>Review does not exist!</p> : <div id="single_review">
                 <img src={review.review_img_url} alt={review.title} />
                 <h1>Review of {review.title}</h1>
                 <h2>Game designed by {review.designer}</h2>
-                <h3>By {review.owner}</h3>
+                <h3> Review Written By {review.owner}</h3>
                 <p>{review.created_at}</p>
                 <p>{review.review_body}</p>
-                <p>{review.category}</p>
-                <button onClick={() => {increaseVote()}}>Votes: {review.votes + votes}</button>
+                <p>Category: {review.category}</p>
+                <button onClick={() => {increaseVote()}}>Likes: {review.votes + votes}</button>
                 <p>{review.comment_count} comments</p>
                 <PostComment comments={comments} setComments={setComments}/>
                 <Comments comments={comments} setComments={setComments}/>
-            </>}
+            </div>}
     </section>
 }
 

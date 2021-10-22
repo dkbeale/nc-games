@@ -20,7 +20,7 @@ const PostComment = ({ setComments }) => {
         })
     }
 
-    return <form onSubmit={submitComment}>
+    return <form onSubmit={submitComment} id="comment_input">
             <textarea required type="text" placeholder="comment here" onChange={(e) => setCommentBody(e.target.value)} />
             <button type="submit">Post Comment</button>
         </form>

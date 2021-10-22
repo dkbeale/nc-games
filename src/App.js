@@ -24,6 +24,9 @@ function App() {
         <Route path="/reviews/:review_id">
           <SingleReview/>
         </Route>
+        <Route>
+          <p className="error_message">Error 404: This Path Does Not Exist</p>
+        </Route>
       </Switch>
     </div>
     </BrowserRouter>
