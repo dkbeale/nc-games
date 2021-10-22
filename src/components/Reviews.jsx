@@ -27,7 +27,7 @@ const Reviews = () => {
             <ul id="reviews">
                 {reviews.map((review) => {
                     return <li key={review.review_id}>
-                            <Link className="review" to={`/reviews/${review.review_id}`}>
+                            <Link className="review" to={`/reviews/${review.review_id}`} style={{ 'text-decoration': "none" }}>
                                 <Link to={`/reviews/${review.review_id}`} className="review_image"><img src={review.review_img_url} alt={review.title} /></Link>
                                 <Link to={`/reviews/${review.review_id}`} className="review_title">{review.title}</Link>
                                 <p className="review_designer">Designer: {review.designer}</p>
