@@ -15,9 +15,9 @@ const Comments = ({ comments, setComments }) => {
         })
     }, [review_id])
 
-    return <section>
+    return <section id="comments_parent">
         <p>comments:</p>
-        {(error) ? <p>No comments!</p> : <>
+        {(error) ? <p>No comments!</p> : <div id="comments">
             <ul>
                 {comments.map((comment) => {
                     return (
@@ -30,7 +30,7 @@ const Comments = ({ comments, setComments }) => {
                     )
                 })}
             </ul>
-        </>}
+        </div>}
     </section>
 }
 
