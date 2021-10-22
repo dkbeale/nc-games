@@ -14,6 +14,8 @@ const Reviews = () => {
     useEffect(() => {
         getReviews(category, sort_by, order).then((res) => {
             setReviews(res.data.reviews)
+        }).catch((err) => {
+            console.log(err)
         })
     }, [category, sort_by, order])
 
@@ -24,14 +26,16 @@ const Reviews = () => {
             setSortBy={setSortBy} setOrder={setOrder}/>
             <ul id="reviews">
                 {reviews.map((review) => {
-                    return <li className="review" key={review.review_id}>
-                            <Link to={`/reviews/${review.review_id}`} className="review_image"><img src={review.review_img_url} alt={review.title} /></Link>
-                            <Link to={`/reviews/${review.review_id}`} className="review_title">{review.title}</Link>
-                            <p className="review_designer">Designer: {review.designer}</p>
-                            <p className="review_owner">by: {review.owner}</p>
-                            <p className="review_votes">Votes: {review.votes}</p>
-                        
-                    </li>
+                    return <li key={review.review_id}>
+                            <Link className="review" to={`/reviews/${review.review_id}`}>
+                                <Link to={`/reviews/${review.review_id}`} className="review_image"><img src={review.review_img_url} alt={review.title} /></Link>
+                                <Link to={`/reviews/${review.review_id}`} className="review_title">{review.title}</Link>
+                                <p className="review_designer">Designer: {review.designer}</p>
+                                <p className="review_owner">by: {review.owner}</p>
+                                <p className="review_votes">Votes: {review.votes}</p>                      
+                            </Link>
+                            </li>
+                      
                 })}
             </ul>
     </section>
