@@ -17,9 +17,6 @@ function App() {
           <Route exact path="/reviews">
             <Reviews />
           </Route>
-          <Route path="/categories/:category/reviews">
-            <Reviews />
-          </Route>
           <Route path="/reviews/:review_id">
             <SingleReview />
           </Route>

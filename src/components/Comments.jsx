@@ -5,11 +5,15 @@ import { useParams } from "react-router";
 const Comments = ({ comments, setComments }) => {
   const [error, setError] = useState(false);
   const { review_id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getComments(review_id)
       .then((res) => {
         setComments(res.data.comments);
+      })
+      .then(() => {
+        setIsLoading(false);
       })
       .catch((err) => {
         setError(true);
@@ -21,6 +25,11 @@ const Comments = ({ comments, setComments }) => {
       <p>comments:</p>
       {error ? (
         <p>Cannot find comments!</p>
+      ) : isLoading ? (
+        <div>
+          <p>Loading</p>
+          <div class="lds-dual-ring"></div>
+        </div>
       ) : (
         <div id="comments">
           <ul>

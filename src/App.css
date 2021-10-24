@@ -2,6 +2,23 @@
   box-sizing: border-box;
 }
 
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #cef;
+  border-color: #cef transparent #cef transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
 body {
   background-image: url("./images/go-background.jpg");
   background-size: cover;
@@ -188,8 +205,10 @@ body {
 }
 
 #single_review img {
-  height: 15%;
+  
+  max-height: fit-content;
   width: 100%;
+  object-fit: contain;
 }
 
 #comment_input {
@@ -215,8 +234,6 @@ body {
   width: fit-content;
 }
 
-#comments_parent {
-}
 
 #comments {
   display: flex;

@@ -10,12 +10,6 @@ export const getCategories = () => {
   });
 };
 
-export const getHomeReviews = () => {
-  return gameAPI.get("/reviews?created_at").then((res) => {
-    return res;
-  });
-};
-
 export const getReviews = (category, sort_by, order) => {
   return gameAPI
     .get("/reviews", {

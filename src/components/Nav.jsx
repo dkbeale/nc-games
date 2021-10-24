@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getCategories } from "../utils/api";
+import { UserContext } from "../context/Auth";
 
 const Nav = () => {
+
+  const { user } = useContext(UserContext)
 
   return (
     <section id="Nav">
@@ -17,6 +19,7 @@ const Nav = () => {
       <Link className="nav_links" to="/reviews">
         Reviews
       </Link>
+      <p>Logged in as: {user.username}</p>
     </section>
   );
 };

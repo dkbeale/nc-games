@@ -28,10 +28,13 @@ const SingleReview = () => {
   }, [review_id]);
 
   const increaseVote = () => {
+    if (votes === 0) {
     setVotes(votes + 1);
     patchVotes(review.review_id)
-      .then(() => {})
-      .catch((err) => {});
+      .catch((err) => {
+        setVotes(votes - 1)
+      });
+    }
   };
 
   return (
@@ -39,7 +42,10 @@ const SingleReview = () => {
       {error ? (
         <p>Review does not exist!</p>
       ) : isLoading ? (
-        <p>Review Loading</p>
+        <div>
+          <p>Loading</p>
+          <div class="lds-dual-ring"></div>
+        </div>
       ) : (
         <div id="single_review">
           <img src={review.review_img_url} alt={review.title} />

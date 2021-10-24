@@ -8,7 +8,7 @@ const Reviews = () => {
   const [sort_by, setSortBy] = useState(null);
   const [order, setOrder] = useState(null);
   const [category, setCategory] = useState(null);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getReviews(category, sort_by, order)
@@ -33,31 +33,40 @@ const Reviews = () => {
         setSortBy={setSortBy}
         setOrder={setOrder}
       />
-      {(isLoading) ? <p>Loading Content</p> : <>
-      <ul id="reviews">
-        {reviews.map((review) => {
-          return (
-            <li key={review.review_id}>
-              <Link
-                className="review"
-                to={`/reviews/${review.review_id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <img
-                  className="review_image"
-                  src={review.review_img_url}
-                  alt={review.title}
-                />
-                <p className="review_title">{review.title}</p>
-                <p className="review_designer">Designer: {review.designer}</p>
-                <p className="review_owner">by: {review.owner}</p>
-                <p className="review_votes">Votes: {review.votes}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      </>}
+      {isLoading ? (
+        <div>
+          <p>Loading</p>
+          <div class="lds-dual-ring"></div>
+        </div>
+      ) : (
+        <>
+          <ul id="reviews">
+            {reviews.map((review) => {
+              return (
+                <li key={review.review_id}>
+                  <Link
+                    className="review"
+                    to={`/reviews/${review.review_id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <img
+                      className="review_image"
+                      src={review.review_img_url}
+                      alt={review.title}
+                    />
+                    <p className="review_title">{review.title}</p>
+                    <p className="review_designer">
+                      Designer: {review.designer}
+                    </p>
+                    <p className="review_owner">by: {review.owner}</p>
+                    <p className="review_votes">Votes: {review.votes}</p>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
     </section>
   );
 };
