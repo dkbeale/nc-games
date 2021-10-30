@@ -44,7 +44,7 @@ const SingleReview = () => {
       ) : isLoading ? (
         <div>
           <p>Loading</p>
-          <div class="lds-dual-ring"></div>
+          <div className="lds-dual-ring"></div>
         </div>
       ) : (
         <div id="single_review">

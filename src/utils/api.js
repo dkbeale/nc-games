@@ -49,3 +49,7 @@ export const postComment = (review_id, comment) => {
     return res;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return gameAPI.delete(`/comments/${comment_id}`)
+}

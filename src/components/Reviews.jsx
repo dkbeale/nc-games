@@ -25,6 +25,7 @@ const Reviews = () => {
 
   return (
     <section id="review_section">
+      <section id="reviews_top_section">
       <h2>Reviews</h2>
       <p>Please find a list of reviews below</p>
       <DropDowns
@@ -33,6 +34,7 @@ const Reviews = () => {
         setSortBy={setSortBy}
         setOrder={setOrder}
       />
+      </section>
       {isLoading ? (
         <div>
           <p>Loading</p>

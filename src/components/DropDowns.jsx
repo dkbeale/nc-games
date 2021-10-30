@@ -12,9 +12,9 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
 
   return (
     <section id="dropdowns">
-      <h3>
+      <p>
         To choose reviews by category, please pick from the drop down menu below
-      </h3>
+      </p>
       <p>pick options to order</p>
       <select name="category" onChange={(e) => setCategory(e.target.value)}>
         <option value="">all reviews</option>
@@ -35,8 +35,8 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
         <option value="owner">owner</option>
       </select>
       <select name="order" onChange={(e) => setOrder(e.target.value)}>
-        <option value="desc">descending</option>
-        <option value="asc">ascending</option>
+        <option value="desc">desc</option>
+        <option value="asc">asc</option>
       </select>
     </section>
   );

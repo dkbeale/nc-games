@@ -1,35 +1,44 @@
-import { useState, useEffect } from "react";
-import { getComments } from "../utils/api";
+import { useState, useEffect, useContext } from "react";
+import { getComments, deleteComment } from "../utils/api";
 import { useParams } from "react-router";
+import { UserContext } from "../context/Auth";
 
 const Comments = ({ comments, setComments }) => {
   const [error, setError] = useState(false);
   const { review_id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     getComments(review_id)
       .then((res) => {
         setComments(res.data.comments);
       })
-      .then(() => {
-        setIsLoading(false);
-      })
       .catch((err) => {
-        setError(true);
+        if (err.response.status !== 404) setError(true);
       });
   }, [review_id]);
+
+  const removeComment = (comment_id, author) => {
+    if (author === user.username) {
+      deleteComment(comment_id).then(() => {
+        setComments(
+          comments.filter((comment) => {
+            if (comment.comment_id !== comment_id) {
+              return comment;
+            }
+          })
+        );
+      });
+    }
+  };
+
+  console.log(comments);
 
   return (
     <section id="comments_parent">
       <p>comments:</p>
       {error ? (
-        <p>Cannot find comments!</p>
-      ) : isLoading ? (
-        <div>
-          <p>Loading</p>
-          <div class="lds-dual-ring"></div>
-        </div>
+        <p>Error: Cannot find comments!</p>
       ) : (
         <div id="comments">
           <ul>
@@ -41,6 +50,13 @@ const Comments = ({ comments, setComments }) => {
                   <p>{date}</p>
                   <p>{comment.body}</p>
                   <p>Votes: {comment.votes}</p>
+                  <button
+                    onClick={() =>
+                      removeComment(comment.comment_id, comment.author)
+                    }
+                  >
+                    Delete comment
+                  </button>
                 </li>
               );
             })}

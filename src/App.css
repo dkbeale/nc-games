@@ -19,6 +19,15 @@
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background-image: url("./images/go-background.jpg");
   background-size: cover;
@@ -89,7 +98,7 @@ body {
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   min-height: 80%;
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
+
 }
 
 #latest_review_img {
@@ -120,8 +129,25 @@ body {
   align-items: center;
 }
 
+#reviews_top_section {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+  box-shadow: rgb(105, 107, 109) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
 #dropdowns {
   max-width: 600px;
+}
+
+#dropdowns select {
+  margin: 0 0.2rem;
 }
 
 #reviews {
@@ -196,19 +222,26 @@ body {
 #single_review_parent {
   display: flex;
   justify-content: center;
+  max-width: 100vw;
+  border: solid black;
 }
 
 #single_review {
-  margin-top: 1rem;
-  padding: 1rem;
+  margin: 2rem 1.4rem;
+  padding: 0.8rem;
   max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-radius: 10px;
 }
 
 #single_review img {
-  
   max-height: fit-content;
   width: 100%;
   object-fit: contain;
+  padding: 0 0.8rem;
+  margin-top: 0.5rem;
 }
 
 #comment_input {
@@ -262,4 +295,31 @@ body {
   box-shadow: rgb(105, 107, 109) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   background-color: rgba(248, 248, 248, 0.5);
+}
+
+.lds-dual-ring-comments {
+  width: fit-content;
+  display: inline-block;
+  height: fit-content;
+  
+}
+.lds-dual-ring-comments:after {
+  content: " ";
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(16, 17, 17);
+  border-color: rgb(10, 10, 10) transparent rgb(10, 10, 10) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring-comments {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
