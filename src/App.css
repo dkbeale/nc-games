@@ -28,11 +28,11 @@
   }
 }
 
-body {
+/*body {
   background-image: url("./images/go-background.jpg");
   background-size: cover;
   background-attachment: fixed;
-}
+}*/
 
 .App {
   text-align: center;
@@ -336,5 +336,35 @@ body {
 }
 
 #sign_in_button:hover {
+  color: #363636;
+}
+
+#sign_out_button {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+}
+
+#sign_out_button:hover {
+  color: #363636;
+}
+
+#sign_up_button {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+}
+
+#sign_up_button:hover {
   color: #363636;
 }

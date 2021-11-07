@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { getComments, deleteComment } from "../utils/api";
+import { getComments, deleteComment, patchCommentVote } from "../utils/api";
 import { useParams } from "react-router";
 import { UserContext } from "../context/Auth";
 
@@ -7,6 +7,8 @@ const Comments = ({ comments, setComments }) => {
   const [error, setError] = useState(false);
   const { review_id } = useParams();
   const { user } = useContext(UserContext);
+  const [votes, setVotes] = useState(0);
+  const [votesById, setVotesById] = useState([]);
 
   useEffect(() => {
     getComments(review_id)
@@ -32,7 +34,17 @@ const Comments = ({ comments, setComments }) => {
     }
   };
 
-  console.log(comments);
+  const increaseVote = (comment_id) => {
+    if (votes === 0) {
+    setVotes(votes + 1);
+    patchCommentVote(comment_id)
+      .catch((err) => {
+        console.dir(err)
+        setVotes(votes - 1)
+      });
+    }
+  };
+
 
   return (
     <section id="comments_parent">
@@ -49,7 +61,7 @@ const Comments = ({ comments, setComments }) => {
                   <p>Commenter: {comment.author}</p>
                   <p>{date}</p>
                   <p>{comment.body}</p>
-                  <p>Votes: {comment.votes}</p>
+                  <button onClick={() => increaseVote(comment.comment_id)}>Votes: {comment.votes + votes}</button>
                   <button
                     onClick={() =>
                       removeComment(comment.comment_id, comment.author)

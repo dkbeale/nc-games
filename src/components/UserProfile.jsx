@@ -19,7 +19,7 @@ const UserProfile = () => {
           console.log(err);
         });
     }
-  }, []);
+  }, [user]);
 
   const removeReview = (review_id) => {
     const revertReviews = [...userReviews]
@@ -27,7 +27,8 @@ const UserProfile = () => {
         if (review.review_id !== review_id) return review
     })
     setUserReviews(tempReview)
-    deleteReview(review_id).catch(() => {
+    deleteReview(review_id).catch((err) => {
+      console.dir(err)
         setUserReviews(revertReviews)
     })
   };
@@ -45,7 +46,7 @@ const UserProfile = () => {
         <article class="media">
           <div class="media-left">
             <figure class="image is-64x64">
-              <img src={user.avatar_url} alt="User Profile Pic" />
+              <img src={user.avatar_url} alt="Missing Profile Pic" />
             </figure>
           </div>
           <div class="media-content">
@@ -69,12 +70,15 @@ const UserProfile = () => {
                 <div key={review.review_id} class="box">
                   <article class="media">
                     <div class="media-left">
-                      <figure class="image is-64x64">
+                      <figure class="image is-128x128">
+                        <Link to={`/reviews/${review.review_id}`}>
                         <img src={review.review_img_url} alt={review.title} />
+                        </Link>                      
                       </figure>
                     </div>
                     <div class="media-content">
                       <div class="content">
+                        <Link to={`/reviews/${review.review_id}`}>
                         <p>
                          
                           <strong>{review.title}</strong>
@@ -85,13 +89,14 @@ const UserProfile = () => {
                           <small>Votes: {review.votes}</small>
                           
                           <br />
+                        </p>
+                        </Link>
                           <button
                             class="button is-danger is-outlined is-small"
                             onClick={() => removeReview(review.review_id)}
                           >
                             <span>Delete</span>
                           </button>
-                        </p>
                       </div>
                     </div>
                   </article>
