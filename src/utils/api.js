@@ -85,7 +85,6 @@ export const postNewUser = (newUser) => {
 }
 
 export const patchCommentVote = (comment_id) => {
-  console.log(comment_id)
   return gameAPI
     .patch(`/comments/${comment_id}`, { inc_votes: 1 })
     .then((res) => {

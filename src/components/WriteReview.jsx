@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Redirect } from "react-router";
 import { UserContext } from "../context/Auth";
 import { getCategories, postNewReview } from "../utils/api";
 
@@ -120,17 +119,16 @@ const WriteReview = () => {
               {categories.map((category) => {
                 return (
                   <>
-                    <a
+                    <option
                       key={category.slug}
-                      href="#"
                       class="dropdown-item"
                       value={category.slug}
                       onClick={(e) =>
-                        setChosenCategory(e.target.attributes[2].nodeValue)
+                        setChosenCategory(e.target.value)
                       }
                     >
                       {category.slug}
-                    </a>
+                    </option>
                     <hr class="dropdown-divider" />
                   </>
                 );

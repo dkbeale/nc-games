@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCategories, getReviews } from "../utils/api";
+import { getReviews } from "../utils/api";
 import { Link } from "react-router-dom";
 import DropDowns from "./DropDowns";
 
@@ -21,15 +21,13 @@ const Reviews = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        //console.log(err);
+
       });
   }, [category, sort_by, order, search]);
 
   const searchSubmit = () => {
     setSearch(searchInput)
   }
-
-  console.log(reviews)
 
   return (
     <section id="review_section">

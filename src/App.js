@@ -5,7 +5,6 @@ import Home from "./components/Home";
 import Reviews from "./components/Reviews";
 import SingleReview from "./components/SingleReview";
 import UserProfile from "./components/UserProfile";
-import AllUsers from "./components/AllUsers";
 import WriteReview from "./components/WriteReview";
 
 function App() {

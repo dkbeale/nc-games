@@ -9,14 +9,11 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (user) {
-      console.log(user.username);
       getReviewsByUser(user.username)
         .then((reviews) => {
           setUserReviews(reviews.data.reviews);
-          console.log(userReviews);
         })
         .catch((err) => {
-          console.log(err);
         });
     }
   }, [user]);
@@ -24,7 +21,7 @@ const UserProfile = () => {
   const removeReview = (review_id) => {
     const revertReviews = [...userReviews]
     const tempReview = userReviews.filter((review) => {
-        if (review.review_id !== review_id) return review
+        return review.review_id !== review_id
     })
     setUserReviews(tempReview)
     deleteReview(review_id).catch((err) => {

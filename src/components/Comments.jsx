@@ -8,7 +8,6 @@ const Comments = ({ comments, setComments }) => {
   const { review_id } = useParams();
   const { user } = useContext(UserContext);
   const [votes, setVotes] = useState(0);
-  const [votesById, setVotesById] = useState([]);
 
   useEffect(() => {
     getComments(review_id)
@@ -25,9 +24,7 @@ const Comments = ({ comments, setComments }) => {
       deleteComment(comment_id).then(() => {
         setComments(
           comments.filter((comment) => {
-            if (comment.comment_id !== comment_id) {
-              return comment;
-            }
+            return comment.comment_id !== comment_id; 
           })
         );
       });
