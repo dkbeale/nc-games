@@ -8,10 +8,12 @@ const Reviews = () => {
   const [sort_by, setSortBy] = useState(null);
   const [order, setOrder] = useState(null);
   const [category, setCategory] = useState(null);
+  const [search, setSearch] = useState(null);
+  const [searchInput, setSearchInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getReviews(category, sort_by, order)
+    getReviews(category, sort_by, order, search)
       .then((res) => {
         setReviews(res.data.reviews);
       })
@@ -19,26 +21,35 @@ const Reviews = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
-  }, [category, sort_by, order]);
+  }, [category, sort_by, order, search]);
+
+  const searchSubmit = () => {
+    setSearch(searchInput)
+  }
+
+  console.log(reviews)
 
   return (
     <section id="review_section">
       <section id="reviews_top_section">
       <h2>Reviews</h2>
       <p>Please find a list of reviews below</p>
+      <input type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
+      <button onClick={searchSubmit}>Submit Search</button>
       <DropDowns
         category={category}
         setCategory={setCategory}
         setSortBy={setSortBy}
         setOrder={setOrder}
       />
+      {(reviews.length === 0) && <p>No Reviews</p>}
       </section>
       {isLoading ? (
         <div>
           <p>Loading</p>
-          <div class="lds-dual-ring"></div>
+          <div className="lds-dual-ring"></div>
         </div>
       ) : (
         <>

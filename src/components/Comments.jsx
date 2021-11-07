@@ -16,7 +16,7 @@ const Comments = ({ comments, setComments }) => {
       .catch((err) => {
         if (err.response.status !== 404) setError(true);
       });
-  }, [review_id]);
+  }, [review_id, setComments]);
 
   const removeComment = (comment_id, author) => {
     if (author === user.username) {
@@ -36,7 +36,7 @@ const Comments = ({ comments, setComments }) => {
 
   return (
     <section id="comments_parent">
-      <p>comments:</p>
+      <p>Comments:{(comments.length === 0) && <> No comments yet, be the first to leave a comment!</>}</p>
       {error ? (
         <p>Error: Cannot find comments!</p>
       ) : (

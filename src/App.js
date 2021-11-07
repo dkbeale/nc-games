@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Reviews from "./components/Reviews";
 import SingleReview from "./components/SingleReview";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route exact path="/reviews">
             <Reviews />
+          </Route>
+          <Route exact path="/profile">
+            <UserProfile/>
           </Route>
           <Route path="/reviews/:review_id">
             <SingleReview />

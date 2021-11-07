@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/Auth";
+import SignIn from "./SignIn";
 
 const Nav = () => {
 
   const { user } = useContext(UserContext)
+
+  useEffect(() => {
+  }, [user])
+  
 
   return (
     <section id="Nav">
@@ -19,7 +24,11 @@ const Nav = () => {
       <Link className="nav_links" to="/reviews">
         Reviews
       </Link>
-      <p>Logged in as: {user.username}</p>
+      <Link className="nav_links" to="/profile">
+        User Profile
+      </Link>
+      <SignIn/>
+      {(user) && <p>Logged in as: {user.username}</p>}
     </section>
   );
 };
