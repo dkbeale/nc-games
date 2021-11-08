@@ -26,16 +26,19 @@ const Reviews = () => {
   }, [category, sort_by, order, search]);
 
   const searchSubmit = () => {
-    setSearch(searchInput)
+    setSearch(searchInput.trim())
   }
+
+  console.log(searchInput)
 
   return (
     <section id="review_section">
       <section id="reviews_top_section">
       <h2>Reviews</h2>
       <p>Please find a list of reviews below</p>
-      <input type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
-      <button onClick={searchSubmit}>Submit Search</button>
+      <input class="input is-small" type="text" placeholder="Search For a Review" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
+      <button class="button is-primary is-outlined is-small" onClick={searchSubmit}>Search</button>
+      {/* <button onClick={searchSubmit}>Submit Search</button> */}
       <DropDowns
         category={category}
         setCategory={setCategory}
