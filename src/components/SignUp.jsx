@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-//import { useContext } from "react/cjs/react.development";
-//import { UserContext } from "../context/Auth";
+// import { useContext } from "react/cjs/react.development";
+// import { UserContext } from "../context/Auth";
 import { postNewUser } from "../utils/api";
 
 const SignUp = () => {
@@ -10,7 +10,8 @@ const SignUp = () => {
   const [imgUrlInput, setImgUrlInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
-  //const value = useContext(UserContext);
+  //const value = useContext(UserContext); This might be an object?
+  // need to log this in DevTools!
 
   const clicker = () => {
     if (modal) {
