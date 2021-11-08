@@ -1,6 +1,6 @@
 # Front-End React Games App!
 
-## [Hosted Front-End App](https://wizardly-ardinghelli-5e933d.netlify.app)
+## [Hosted Front-End App](daniel-beale-nc-games.netlify.app)
 
 ## Summary
 
