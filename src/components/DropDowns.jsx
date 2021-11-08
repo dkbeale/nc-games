@@ -16,7 +16,7 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
         To choose reviews by category, please pick from the drop down menu below
       </p>
       <p>pick options to order</p>
-      <select name="category" onChange={(e) => setCategory(e.target.value)}>
+      <select id="dropdown_category" name="category" onChange={(e) => setCategory(e.target.value)}>
         <option value="">all reviews</option>
         {categories.map((cata) => {
           return (
@@ -26,7 +26,7 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
           );
         })}
       </select>
-      <select name="sort_by" onChange={(e) => setSortBy(e.target.value)}>
+      <select id="dropdown_sort" name="sort_by" onChange={(e) => setSortBy(e.target.value)}>
         <option value="created_at">created at</option>
         <option value="title">title</option>
         <option value="votes">votes</option>
@@ -34,7 +34,7 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
         <option value="category">category</option>
         <option value="owner">owner</option>
       </select>
-      <select name="order" onChange={(e) => setOrder(e.target.value)}>
+      <select id="dropdown_order" name="order" onChange={(e) => setOrder(e.target.value)}>
         <option value="desc">desc</option>
         <option value="asc">asc</option>
       </select>
