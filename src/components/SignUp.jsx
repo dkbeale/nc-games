@@ -10,7 +10,7 @@ const SignUp = () => {
   const [imgUrlInput, setImgUrlInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
-  const value = useContext(UserContext);
+  //const value = useContext(UserContext);
 
   const clicker = () => {
     if (modal) {
@@ -31,7 +31,7 @@ const SignUp = () => {
     }).then((user) => {
         setFailedLogin(false);
         setIsLoading(false);
-        value.setUser(user.data.user)
+        //value.setUser(user.data.user)
     }).then(() => {
         setUserNameInput("");
         setNameInput("");
