@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useContext } from "react/cjs/react.development";
-import { UserContext } from "../context/Auth";
+//import { useContext } from "react/cjs/react.development";
+//import { UserContext } from "../context/Auth";
 import { postNewUser } from "../utils/api";
 
 const SignUp = () => {
