@@ -1,6 +1,6 @@
 # Front-End React Games App!
 
-## [Live Hosted App Goes here](https://db-nc-games.herokuapp.com/)
+## [Hosted Front-End App](https://wizardly-ardinghelli-5e933d.netlify.app)
 
 ## Summary
 
@@ -33,10 +33,3 @@ $ npm start
 
 That should be everything you need to get going
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
