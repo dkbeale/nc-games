@@ -12,7 +12,6 @@ const Nav = () => {
   useEffect(() => {
   }, [user])
   
-
   return (
     <section id="Nav">
       <h1>
