@@ -50,6 +50,7 @@
 
 #Nav h1 {
   margin-bottom: 1rem;
+  font-size: larger;
 }
 
 #nav_webname {
@@ -81,10 +82,23 @@
   display: flex;
   flex-direction: column;
   line-height: 1.5rem;
+  border-radius: 15px 15px 0 0;
+}
+
+#welcome h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: larger;
+  font-weight: 500;
 }
 
 #welcome p {
   padding: 0 0.8rem;
+}
+
+#welcome h3 {
+  font-size: large;
+  margin-top: 0.5rem;
 }
 
 #latest_review {
@@ -104,6 +118,7 @@
 #latest_review_img {
   height: 5rem;
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 #latest_review img {
@@ -115,6 +130,11 @@
 #latest_review .review_title {
   color: black;
   text-decoration: none;
+  font-weight: 500;
+}
+
+#latest_review .review_designer {
+  font-weight: 500;
 }
 
 #latest_review .review_body {
@@ -137,17 +157,39 @@
   flex-direction: column;
   padding-bottom: 1rem;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
+  align-items: center;
   box-shadow: rgb(105, 107, 109) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
+#reviews_top_section h2 {
+  font-size: larger;
+}
+
+#reviews_top_section input {
+  margin-top:  0.7rem;
+  margin-bottom: 0.3rem;
+  width: 85%;
+}
+
 #dropdowns {
   max-width: 600px;
+  margin-top: 0.5rem;
 }
 
 #dropdowns select {
-  margin: 0 0.2rem;
+  /* margin: 0 0.2rem; */
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+
+}
+
+#dropdown_category, #dropdown_sort {
+  max-width: 110px;
+  width: 30%;
 }
 
 #reviews {
