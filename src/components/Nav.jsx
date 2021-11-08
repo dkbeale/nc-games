@@ -16,7 +16,7 @@ const Nav = () => {
     <section id="Nav">
       <h1>
         <Link id="nav_webname" to="/">
-          Board of Reviews
+          <h1>Board of Reviews</h1>
         </Link>
       </h1>
       <Link className="nav_links" to="/">
