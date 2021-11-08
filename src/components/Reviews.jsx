@@ -38,7 +38,6 @@ const Reviews = () => {
       <p>Please find a list of reviews below</p>
       <input class="input is-small" type="text" placeholder="Search For a Review" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
       <button class="button is-primary is-outlined is-small" onClick={searchSubmit}>Search</button>
-      {/* <button onClick={searchSubmit}>Submit Search</button> */}
       <DropDowns
         category={category}
         setCategory={setCategory}

@@ -28,12 +28,6 @@
   }
 }
 
-/*body {
-  background-image: url("./images/go-background.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-}*/
-
 .App {
   text-align: center;
   display: grid;
