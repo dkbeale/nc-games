@@ -1,6 +1,6 @@
 # Front-End React Games App!
 
-## [Hosted Front-End App](https://daniel-beale-nc-games.netlify.app/)
+## [Hosted Front-End App](https://board-of-reviews.herokuapp.com/)
 
 ## Summary
 
