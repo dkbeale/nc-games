@@ -45,7 +45,7 @@ const SignUp = () => {
   return (
     <div>
       <button id="sign_up_button" onClick={() => clicker()}>
-        Sign Up
+        Register
       </button>
       <div class={`modal ${modal && "is-active"}`}>
         <div class="modal-background" onClick={() => clicker()}></div>

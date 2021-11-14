@@ -19,6 +19,7 @@ const Nav = () => {
           Board of Reviews
         </Link>
       </h1>
+      <span>
       <Link className="nav_links" to="/">
         Home
       </Link>
@@ -31,8 +32,9 @@ const Nav = () => {
       <Link className="nav_links" to="/new-review">New Review</Link>
       <button id="sign_out_button" onClick={() => value.setUser(null)}>Sign Out</button>
       <SignIn/>
-      {(user) && <p>Logged in as: {user.username}</p>}
       <SignUp/>
+      </span>
+      {(user) && <p>Logged in as: {user.username}</p>}
     </section>
   );
 };
