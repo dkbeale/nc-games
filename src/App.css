@@ -30,32 +30,130 @@
 
 .App {
   text-align: center;
-  display: grid;
   height: 100vh;
-  grid-template-rows: 1fr 7fr;
 }
 
 #Nav {
   background-color: rgb(98, 91, 91);
   box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.5);
-  padding-bottom: 1em;
+  height:fit-content;
+}
+
+#Nav_flex {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 1200px) {
+  #Nav_flex {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 #Nav h1 {
-  margin-bottom: 1rem;
+  margin: 1rem 0 1rem 1rem;
   font-size: larger;
+  text-align: center;
+  
 }
 
 #nav_webname {
   color: white;
   text-decoration: none;
+  font-size:xx-large;
+}
+
+#nav_links {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav_home {
+  margin-left: auto;
 }
 
 .nav_links {
   padding: 0.5rem;
   text-decoration: none;
   color: white;
+}
+
+#sign_in_button {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+}
+
+#sign_in_button:hover {
+  color: #363636;
+}
+
+#sign_out_button {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+    margin-right: 3%;
+}
+
+#sign_out_button:hover {
+  color: #363636;
+}
+
+#sign_up_button {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+}
+
+#sign_up_button:hover {
+  color: #363636;
+}
+
+@media screen and (min-width: 800px) {
+  #navbar-burger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  #nav_links {
+    display: none;
+  }
+}
+
+#navbar-burger {
+  height: fit-content;
+  flex-direction: column;
+}
+
+#navbar-burger .burg {
+  width: 20px;
+  height: 5px;
+  background-color: black;
+  margin: 2px 0;
+}
+
+.pageloader::after {
+  display: none !important;
 }
 
 #Home {
@@ -360,47 +458,3 @@
   }
 }
 
-#sign_in_button {
-  background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    color: white;
-    font-size: 1rem;
-}
-
-#sign_in_button:hover {
-  color: #363636;
-}
-
-#sign_out_button {
-  background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    color: white;
-    font-size: 1rem;
-}
-
-#sign_out_button:hover {
-  color: #363636;
-}
-
-#sign_up_button {
-  background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    color: white;
-    font-size: 1rem;
-}
-
-#sign_up_button:hover {
-  color: #363636;
-}
