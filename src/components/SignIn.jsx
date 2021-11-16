@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../context/Auth";
 import { getSingleUser } from "../utils/api";
 
-const SignIn = () => {
+const SignIn = ({ setIsNavOpen }) => {
   const [modal, setModal] = useState(false);
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -19,22 +19,24 @@ const SignIn = () => {
 
   const submitSignIn = (e) => {
     e.preventDefault();
-    setIsLoading(true)
-    setFailedLogin(false)
+    setIsLoading(true);
+    setFailedLogin(false);
     getSingleUser(input)
       .then((user) => {
-        setFailedLogin(false)
-        setIsLoading(false)
-        value.setUser(user.data.user)
+        setFailedLogin(false);
+        setIsLoading(false);
+        value.setUser(user.data.user);
       }).then(() => {
-          setInput("")
-          setModal(false);
+          setInput("");
+          setModal(false)
+      }).then(() => {
+        setIsNavOpen(false);
       }).catch((err) => {
-          setFailedLogin(true)
+          setFailedLogin(true);
       })
 
   }
-
+  // console.log(setIsNavOpen)
 
   return (
     <div>

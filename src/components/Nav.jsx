@@ -44,7 +44,7 @@ const Nav = () => {
             setIsNavOpen(false);
           }}
         ></button>
-        <MobileNav />
+        <MobileNav setIsNavOpen={setIsNavOpen}/>
       </div>
       <span id="nav_links">
         <Link className="nav_links" id="nav_home" to="/">

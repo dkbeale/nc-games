@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/Auth";
 import { postNewUser } from "../utils/api";
 
-const SignUp = () => {
+const SignUp = ({ setIsNavOpen }) => {
   const [modal, setModal] = useState(false);
   const [userNameInput, setUserNameInput] = useState("");
   const [nameInput, setNameInput] = useState("");
@@ -37,6 +37,8 @@ const SignUp = () => {
         setNameInput("");
         setImgUrlInput("");
         setModal(false);
+    }).then(() => {
+      setIsNavOpen(false)
     }).catch(() => {
         setFailedLogin(true);
     });
@@ -70,6 +72,7 @@ const SignUp = () => {
                   onChange={(e) => setUserNameInput(e.target.value)}
                 />
                 <input
+                  id="sign_up_name"
                   class={`input ${!failedLogin ? "is-primary" : "is-danger"}`}
                   type="text"
                   placeholder="Name"

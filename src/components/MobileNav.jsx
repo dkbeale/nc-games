@@ -5,30 +5,42 @@ import { useContext } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-const MobileNav = () => {
+const MobileNav = ({ setIsNavOpen }) => {
 
     const value = useContext(UserContext);
 
+    const signOut = () => {
+      value.setUser(null)
+      setIsNavOpen(false)
+    }
 
     return (
-        <div>
-        <Link className="nav_links" to="/">
+        <div id="burger_menu">
+        <Link className="nav_links" to="/" onClick={() => {
+            setIsNavOpen(false);
+          }}>
           Home
         </Link>
-        <Link className="nav_links" to="/reviews">
+        <Link className="nav_links" to="/reviews" onClick={() => {
+            setIsNavOpen(false);
+          }}>
           Reviews
         </Link>
-        <Link className="nav_links" to="/profile">
+        <Link className="nav_links" to="/profile" onClick={() => {
+            setIsNavOpen(false);
+          }}>
           User Profile
         </Link>
-        <Link className="nav_links" to="/new-review">
+        <Link className="nav_links" to="/new-review" onClick={() => {
+            setIsNavOpen(false);
+          }}>
           New Review
         </Link>
-        <button id="sign_out_button" onClick={() => value.setUser(null)}>
+        <button id="sign_out_button" onClick={() => signOut()}>
           Sign Out
         </button>
-        <SignIn />
-        <SignUp />
+        <SignIn setIsNavOpen={setIsNavOpen}/>
+        <SignUp setIsNavOpen={setIsNavOpen}/>
         </div>
     );
 };
