@@ -29,15 +29,13 @@ const Reviews = () => {
     setSearch(searchInput.trim())
   }
 
-  console.log(searchInput)
-
   return (
     <section id="review_section">
       <section id="reviews_top_section">
       <h2>Reviews</h2>
       <p>Please find a list of reviews below</p>
-      <input class="input is-small" type="text" placeholder="Search For a Review" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
-      <button class="button is-primary is-outlined is-small" onClick={searchSubmit}>Search</button>
+      <input className="input is-small" type="text" placeholder="Search For a Review" onChange={(e) => setSearchInput(e.target.value)} value={searchInput}/>
+      <button className="button is-primary is-outlined is-small" onClick={searchSubmit}>Search</button>
       <DropDowns
         category={category}
         setCategory={setCategory}

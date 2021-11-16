@@ -33,21 +33,21 @@ const UserProfile = () => {
   if (!user) {
     return (
       <section>
-        <div class="box">Please Sign In</div>
+        <div className="box">Please Sign In</div>
       </section>
     );
   }
   return (
     <section>
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-64x64">
+      <div className="box">
+        <article className="media">
+          <div className="media-left">
+            <figure className="image is-64x64">
               <img src={user.avatar_url} alt="Missing Profile Pic" />
             </figure>
           </div>
-          <div class="media-content">
-            <div class="content">
+          <div className="media-content">
+            <div className="content">
               <p>
                 <strong>Username: {user.username}</strong>
                 <br />
@@ -58,23 +58,23 @@ const UserProfile = () => {
         </article>
       </div>
       {userReviews.length === 0 ? (
-        <div class="box">No Reviews</div>
+        <div className="box">No Reviews</div>
       ) : (
-        <div class="box">
+        <div className="box">
           User Reviews:
           {userReviews.map((review) => {
             return (
-                <div key={review.review_id} class="box">
-                  <article class="media">
-                    <div class="media-left">
-                      <figure class="image is-128x128">
+                <div key={review.review_id} className="box">
+                  <article className="media">
+                    <div className="media-left">
+                      <figure className="image is-128x128">
                         <Link to={`/reviews/${review.review_id}`}>
                         <img src={review.review_img_url} alt={review.title} />
                         </Link>                      
                       </figure>
                     </div>
-                    <div class="media-content">
-                      <div class="content">
+                    <div className="media-content">
+                      <div className="content">
                         <Link to={`/reviews/${review.review_id}`}>
                         <p>
                          
@@ -89,7 +89,7 @@ const UserProfile = () => {
                         </p>
                         </Link>
                           <button
-                            class="button is-danger is-outlined is-small"
+                            className="button is-danger is-outlined is-small"
                             onClick={() => removeReview(review.review_id)}
                           >
                             <span>Delete</span>

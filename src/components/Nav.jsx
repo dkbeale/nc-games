@@ -38,7 +38,7 @@ const Nav = () => {
         className={`pageloader is-right-to-left ${isNavOpen && "is-active"}`}
       >
         <button
-          class="modal-close is-large"
+          className="modal-close is-large"
           aria-label="close"
           onClick={() => {
             setIsNavOpen(false);

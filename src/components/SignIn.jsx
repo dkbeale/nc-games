@@ -43,22 +43,22 @@ const SignIn = ({ setIsNavOpen }) => {
       <button id="sign_in_button" onClick={() => clicker()}>
         Login
       </button>
-      <div class={`modal ${modal && "is-active"}`}>
-        <div class="modal-background" onClick={() => clicker()}></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Sign In</p>
+      <div className={`modal ${modal && "is-active"}`}>
+        <div className="modal-background" onClick={() => clicker()}></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title">Sign In</p>
             <button
-              class="delete"
+              className="delete"
               aria-label="close"
               onClick={() => clicker()}
             ></button>
           </header>
           <form onSubmit={submitSignIn}>
-          <section class="modal-card-body">
-            <div class={`control ${(isLoading) && "is-loading"}`}>  
+          <section className="modal-card-body">
+            <div className={`control ${(isLoading) && "is-loading"}`}>  
             <input
-              class={`input ${(!failedLogin) ? "is-primary" : "is-danger"}`}
+              className={`input ${(!failedLogin) ? "is-primary" : "is-danger"}`}
               type="text"
               placeholder="Username"
               required
@@ -69,13 +69,13 @@ const SignIn = ({ setIsNavOpen }) => {
             {(failedLogin) && <p>Login Failed</p>}
           </section>
           <button
-            class="modal-close is-large"
+            className="modal-close is-large"
             aria-label="close"
             onClick={() => clicker()}
           ></button>
-          <footer class="modal-card-foot">
-            <button class="button is-success" type="submit">Sign in</button>
-            <button class="button" onClick={() => clicker()}>
+          <footer className="modal-card-foot">
+            <button className="button is-success" type="submit">Sign in</button>
+            <button className="button" onClick={() => clicker()}>
               Cancel
             </button>
           </footer>

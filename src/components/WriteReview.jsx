@@ -42,7 +42,7 @@ const WriteReview = () => {
   if (!user) {
     return (
       <section>
-        <div class="box">Please Sign In</div>
+        <div className="box">Please Sign In</div>
       </section>
     );
   }
@@ -50,10 +50,10 @@ const WriteReview = () => {
   if (newReview) {
     return (
       <section>
-        <div class="block is-large">
-          <span class="tag is-success">
+        <div className="block is-large">
+          <span className="tag is-success">
             Review Submitted!
-            <button class="delete is-small" onClick={() => setNewReview(false)}></button>
+            <button className="delete is-small" onClick={() => setNewReview(false)}></button>
           </span>
         </div>
       </section>
@@ -62,13 +62,13 @@ const WriteReview = () => {
 
   return (
     <div>
-      <form class="box" onSubmit={submitReview}>
-        <div class="field">
-          <label class="label">Title</label>
-          <div class="control">
+      <form className="box" onSubmit={submitReview}>
+        <div className="field">
+          <label className="label">Title</label>
+          <div className="control">
             <input
               required
-              class="input"
+              className="input"
               placeholder="Title of the game being reviewed"
               value={titleInput}
               onChange={(e) => setTitleInput(e.target.value)}
@@ -76,52 +76,52 @@ const WriteReview = () => {
           </div>
         </div>
 
-        <div class="field">
-          <label class="label">Designer</label>
-          <div class="control">
+        <div className="field">
+          <label className="label">Designer</label>
+          <div className="control">
             <input
               required
-              class="input"
+              className="input"
               placeholder="Game Designer"
               value={designerInput}
               onChange={(e) => setDesignerInput(e.target.value)}
             />
           </div>
         </div>
-        <div class="field">
-          <div class="control">
-            <label class="label">Review Body</label>
+        <div className="field">
+          <div className="control">
+            <label className="label">Review Body</label>
             <textarea
               required
-              class="textarea is-medium"
+              className="textarea is-medium"
               placeholder="Write your review here"
               value={bodyInput}
               onChange={(e) => setBodyInput(e.target.value)}
             ></textarea>
           </div>
         </div>
-        <div class="dropdown is-hoverable" required>
-          <div class="dropdown-trigger">
+        <div className="dropdown is-hoverable" required>
+          <div className="dropdown-trigger">
             <button
               type="button"
-              class="button"
+              className="button"
               aria-haspopup="true"
               aria-controls="dropdown-menu"
             >
               <span>{chosenCategory}</span>
-              <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              <span className="icon is-small">
+                <i className="fas fa-angle-down" aria-hidden="true"></i>
               </span>
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
+          <div className="dropdown-menu" id="dropdown-menu" role="menu">
+            <div className="dropdown-content">
               {categories.map((category) => {
                 return (
                   <>
                     <option
                       key={category.slug}
-                      class="dropdown-item"
+                      className="dropdown-item"
                       value={category.slug}
                       onClick={(e) =>
                         setChosenCategory(e.target.value)
@@ -129,14 +129,14 @@ const WriteReview = () => {
                     >
                       {category.slug}
                     </option>
-                    <hr class="dropdown-divider" />
+                    <hr className="dropdown-divider" />
                   </>
                 );
               })}
             </div>
           </div>
         </div>
-        <button class="button is-primary" type="submit">
+        <button className="button is-primary" type="submit">
           Submit
         </button>
       </form>
