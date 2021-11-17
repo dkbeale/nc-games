@@ -12,6 +12,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Nav />
+          <div id="app_body">
         <Switch>
           <Route exact path="/">
             <Home />
@@ -46,6 +47,7 @@ function App() {
             <p className="error_message">Error 404: This Path Does Not Exist</p>
           </Route>
         </Switch>
+          </div>
       </div>
     </BrowserRouter>
   );
