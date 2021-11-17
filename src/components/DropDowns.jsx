@@ -32,7 +32,7 @@ const DropDowns = ({ category, setCategory, setSortBy, setOrder }) => {
         <option value="votes">votes</option>
         <option value="comment_count">comment count</option>
         <option value="category">category</option>
-        <option value="owner">owner</option>
+        <option value="owner">author</option>
       </select>
       <select id="dropdown_order" name="order" onChange={(e) => setOrder(e.target.value)}>
         <option value="desc">desc</option>
